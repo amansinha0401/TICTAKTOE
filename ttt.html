@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Raleway:wght@700&family=Roboto&display=swap');
+body{
+    background: #8052ec;
+    height: 725px;
+    font-family: 'Roboto',sans-serif  ;
+ }
+        ul{
+            font-weight: bolder;
+            text-align: center;  
+            font-size: 70px;
+            margin-top: 10px;
+            align-items: center;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            left: 600px;
+            top: 10px;
+            list-style: none;
+            display: flex;
+            font-weight: bolder;
+            color: antiquewhite;
+            letter-spacing: 10px;
+        }
+        #main 
+        {
+           margin-left: 550px;
+          margin-top: 200px;
+        }
+        #div1,#div2,#div3,#div4,#div5,#div6,#div7,#div8,#div9
+        {
+            
+            color:black; 
+            border: 1px  solid navajowhite;
+            width: 150px;
+            height: 150px;
+            float:left;
+            border-width: 5px;
+            font-size: 150px;
+            text-align: center;
+        }
+        #div1,#div4,#div7
+        {
+            clear: left;
+            border-left: none;
+        }
+        #div9,#div6,#div3
+        {
+            border-right: none;
+        }
+        #div1,#div2,#div3
+        {
+            border-top: none;
+        }
+        #div7,#div8,#div9
+        {
+            border-bottom: none;
+        }
+        #ak{
+          text-align: center;
+          position: absolute;
+          left: 150px;
+
+        }
+        #aks{
+            text-align: center;
+          position: absolute;
+          left: 1300px;
+            
+        }
+        #logo{
+            width: 370px;
+            height: 370px;
+            position: absolute;
+            margin-left: 930px;
+            
+           
+            
+        }
+        #logo1{
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            left: 0px;
+            
+           
+        }
+        
+        h2,h3{
+            color: aliceblue;
+            text-align: center;
+            font-weight: bolder;
+            font-size: 30px;
+        }
+        #a{
+          color:chartreuse;
+        }
+        #m{
+            color: yellow;
+        }
+        #n{
+            color:red;
+        }
+        
+    </style>
+    <script>
+        var count=1;
+        function fill(control)
+        {
+            if(checkwin())
+            {
+                alert("winnner");
+            }
+            else{
+            if(count<=9)
+                {
+            if(count%2!==0)
+            {
+             document.getElementById(control.id).innerHTML="x" 
+            }
+            else
+            {
+          document.getElementById(control.id).innerHTML="o"
+            }
+           count++;
+        }   
+        else
+        {
+            alert("Match draw" );
+            reset();
+        }
+    }
+}
+    function reset()
+    {
+        for(var i=1;i<=9;i++)
+        {
+        document.getElementById('div'+i).innerHTML=" ";
+        }
+    }
+    function checkwin(){
+        if(checker("div1","div2","div3")
+        || checker("div1","div5","div9")
+        || checker("div1","div4","div7")
+        || checker("div3","div5","div7")
+        || checker("div4","div5","div6")
+        || checker("div7","div8","div9")
+        || checker("div2","div5","div8")
+        || checker("div3","div6","div9"))
+    {
+        return true;
+    }
+        }
+    function checker(div1,div2,div3){
+        if(  getData(div1)!="" &&   getData(div2)!=""&&
+         getData(div3)!="" &&   getData(div1)==  getData(div2) &&
+         getData(div2)==  getData(div3))
+    {
+        return true;
+    }
+        }
+        function getData(div)
+        {
+            return document.getElementById(div).innerHTML;
+        }
+    </script>
+</head>
+<body >
+   
+    
+    <ul>
+        <li id="a">
+           TIC
+        </li>
+        <li id="m">
+            TAK
+        </li>
+        <li id="n">
+           TOE
+        </li>
+    </ul>
+
+    
+    
+<div id="main">
+<div id="div1" onclick="fill(this)"></div><div id="div2" onclick="fill(this)"></div><div id="div3" onclick="fill(this)"></div>
+<div id="div4" onclick="fill(this)"></div><div id="div5" onclick="fill(this)"></div><div id="div6" onclick="fill(this)"></div>
+<div id="div7" onclick="fill(this)"></div><div id="div8" onclick="fill(this)"></div><div id="div9" onclick="fill(this)"></div>
+</div>
+<div id="ak" > <h2>PLAYER 1</h2>  <img id="logo" src="cr.png"  width="120px" height="70px" alt="logo"> </div>
+<div id="aks"><h2>PLAYER 2</h2> </div>
+<div><img id="logo1" src="cr2.png"  width="120px" height="70px" alt="logo"> </div>
+</body>
+</html>
